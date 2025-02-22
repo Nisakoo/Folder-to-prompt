@@ -5,7 +5,51 @@ declare -A SYSTEM_INSTRUCTIONS
 SYSTEM_INSTRUCTIONS["error"]="Анализируй проблему, предлагай варианты исправления и поясняй логику."
 SYSTEM_INSTRUCTIONS["optimize"]="Ищи узкие места, предлагай улучшения и объясняй преимущества изменений."
 SYSTEM_INSTRUCTIONS["default"]="Выполняй поставленные задачи согласно лучшим практикам."
-SYSTEM_INSTRUCTIONS["review"]="Сделай отчет по следующему коду:"
+SYSTEM_INSTRUCTIONS["review"]="Сделай отчет по следующему коду.
+Отчет должен содержать описание используемых данных.
+Тебе нужно указать все глобальные и статические переменные,
+сигнатуры функций, объявление классов, структур и других конструкций языка C++.
+Приведи только объявления, присваяемые значения писать не нужно.
+После объявления обязательно приведи краткое описание.
+СТРОГО ЗАПРЕЩАЕТСЯ УКАЗЫВАТЬ В ОТЧЕТЕ: локальные переменные, объявление namespace.
+На этом отчет заканичивается, больше ничего писать не нужно
+
+Пример отчета:
+
+Объявления:
+template <typename T> class Database;
+> Шаблон класса Database для хранения и управления данными типа T.
+template <typename T> Database<T>::Database(const char* filename);
+> Конструктор класса Database, принимающий C-style строку filename.
+template <typename T> Database<T>::Database(String filename);
+> Конструктор класса Database, принимающий объект String filename.
+template <typename T> Database<T>::~Database();
+> Деструктор класса Database.
+template <typename T> void Database<T>::Read();
+> Метод класса Database для чтения данных из файла.
+template <typename T> void Database<T>::Write();
+> Метод класса Database для записи данных в файл.
+template <typename T> void Database<T>::Sort();
+> Метод класса Database для сортировки данных.
+template <typename T> void Database<T>::Add(const T& element);
+> Метод класса Database для добавления элемента типа T.
+template <typename T> void Database<T>::Replace(std::size_t index, const T& element);
+> Метод класса Database для замены элемента типа T по индексу.
+template <typename T> void Database<T>::Remove(std::size_t index);
+> Метод класса Database для удаления элемента по индексу.
+template <typename T> void Database<T>::Edit(std::size_t index, const T& element);
+> Метод класса Database для редактирования элемента типа T по индексу.
+template <typename T> void Database<T>::Print(bool withIndexes = false);
+> Метод класса Database для печати данных.
+String filename;
+> Приватная переменная filename класса Database для хранения имени файла.
+Vector<T> array;
+> Приватная переменная array класса Database для хранения массива элементов типа T.
+enum class UserActions : int { kExit = 0, kReadFromFile = 1, kWriteToFile = 2, kSort = 3, kAdd = 4, kRemove = 5, kEdit = 6, kPrint = 7, };
+> Перечисление UserActions для действий пользователя.
+int main(int, char**);
+> Главная функция программы, точка входа."
+
 SYSTEM_INSTRUCTIONS["empty"]=" "
 
 # Функция для отображения справки
