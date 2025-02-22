@@ -1,4 +1,4 @@
-# Folder-to-prompt
+# folder to prompt
 Скрипт для преобразования папки и ее содержимого в промпт для LLM
 
 Файл `folder_to_prompt.sh` поместить в домашнюю дерикторию
